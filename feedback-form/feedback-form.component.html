@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Product Feedback Form</h1>
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" formControlName="productName">
+  
+      <label for="rating">Rating (1-5):</label>
+      <input type="number" id="rating" formControlName="rating" min="1" max="5">
+  
+      <label for="comments">Comments:</label>
+      <textarea id="comments" formControlName="comments" rows="4"></textarea>
+  
+      <button type="submit" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+    </form>
+    <p *ngIf="submitted" class="confirmation-msg">Thank you for your feedback!</p>
+  </div>
+  
